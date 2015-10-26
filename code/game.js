@@ -534,6 +534,6 @@ function runGame(plans, Display) {
         console.log('You Win!');
     });
   }
-  startLevel(1);
+  startLevel(0);
 
 }
