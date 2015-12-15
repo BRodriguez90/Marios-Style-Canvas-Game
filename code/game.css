@@ -1,0 +1,83 @@
+
+body {
+    background-color: #24248f;
+}
+h2 {
+	color: white;
+	text-align: center;
+	}
+canvas {
+	border: 10px inset white;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 600px;
+	    
+            top: -225;
+            left: 200;
+            -webkit-transition: all 1s;
+        }
+ 
+        .can-hide {
+            top: -225;
+            opacity: 0;
+        }
+ 
+        .can-pop {
+            top: 120;
+            opacity:1;
+        }
+}
+
+.background    { background-image: url("http://i61.tinypic.com/28u46mp.png");
+                 table-layout:fixed;
+                 border-spacing: 0;  
+				background-attachment:fixed; 
+}
+
+
+
+.background td { padding: 0;  }
+
+.lava          { background: red;}
+
+.platform { background-image:url("http://i.imgur.com/sKFJ9w1.png");}
+
+.wall          { 
+			opacity: 0.9;
+			background: rgb(141, 141, 125);
+}
+
+.actor  { position: absolute;  }
+
+.coin   { background-image:url('http://i.imgur.com/QKrUNNr.png'); 
+ }
+.player {  background:url('http://i.imgur.com/sc8JRZj.gif');  background-position:27px 32px; }
+
+.turtle { background-image:url('http://i.imgur.com/b2jFGmo.png');  }
+  
+ .spikes { background-image:url('http://i.imgur.com/98saQRi.png');  }
+ .lspikes{background-image:url('http://i.imgur.com/8ItKGRC.png');
+ }
+.game {
+  overflow: hidden;
+  max-width: 600px;
+  max-height: 450px;
+  position: center;
+}
+
+.lost .background{ background-image:url('http://i.imgur.com/Vpq6UqG.jpg');
+
+			
+	/*box-shadow: -4px -7px 8px grey, 4px -7px 8px grey;*/
+
+}
+
+.won .player {
+	background-image:url('http://i.imgur.com/ANAoV7f.png');
+	background-position:29px 33px;
+  /*box-shadow: -4px -7px 8px white, 4px -7px 8px white;*/
+}
+  
