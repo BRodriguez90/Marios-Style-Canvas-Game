@@ -1,3 +1,7 @@
+
+
+
+
 // Map each class of actor to a character
 var actorChars = {
   "@": Player,
@@ -87,8 +91,8 @@ Vector.prototype.times = function(factor) {
 
 // A Player has a size, speed and position.
 function Player(pos) {
-  this.pos = pos.plus(new Vector(0, -1));//-0.5
-  this.size = new Vector(1.3, 1.6); //0.8 1.5- 1.4,1.6
+  this.pos = pos.plus(new Vector(0, -1));//-0.5 -----   -1
+  this.size = new Vector(0.8, 1.5); //0.8 1.5- 1.4,1.6
   this.speed = new Vector(0, 0);
 }
 Player.prototype.type = "player";
@@ -176,7 +180,7 @@ function DOMDisplay(parent, level) {
 
 var scale = 20;
 
-DOMDisplay.prototype.drawBackground = function() {
+/*DOMDisplay.prototype.drawBackground = function() {
   var table = elt("table", "background");
   table.style.width = this.level.width * scale + "px";
 
@@ -190,10 +194,10 @@ DOMDisplay.prototype.drawBackground = function() {
     });
   });
   return table;
-};
+};*/
 
 // All actors are above (in front of) background elements.  
-DOMDisplay.prototype.drawActors = function() {
+/*DOMDisplay.prototype.drawActors = function() {
   // Create a new container div for actor dom elements
   var wrap = elt("div");
 
@@ -207,16 +211,16 @@ DOMDisplay.prototype.drawActors = function() {
     rect.style.top = actor.pos.y * scale + "px";
   });
   return wrap;
-};
+};*/
 
-DOMDisplay.prototype.drawFrame = function() {
+/*DOMDisplay.prototype.drawFrame = function() {
   if (this.actorLayer)
     this.wrap.removeChild(this.actorLayer);
   this.actorLayer = this.wrap.appendChild(this.drawActors());
   // Update the status each time with this.level.status"
   this.wrap.className = "game " + (this.level.status || "");
   this.scrollPlayerIntoView();
-};
+};*/
 
 DOMDisplay.prototype.scrollPlayerIntoView = function() {
   var width = this.wrap.clientWidth;
@@ -442,6 +446,7 @@ Level.prototype.playerTouched = function(type, actor) {
     });
     // If there aren't any coins left, player wins
     if (!this.actors.some(function(actor) {
+		
            return actor.type == "coin";
          })) {
       this.status = "won";
@@ -454,7 +459,7 @@ Level.prototype.playerTouched = function(type, actor) {
 
 
 // Arrow key codes for readibility
-var arrowCodes = {37: "left", 38: "up", 39: "right", 40: "down"};
+var arrowCodes = {37: "left", 38: "up", 39: "right", 40: "down",82:"test"};
 
 // Translate the codes pressed from a key event
 function trackKeys(codes) {
@@ -525,13 +530,17 @@ function runGame(plans, Display) {
     // Create a new level using the nth element of array plans
     // Pass in a reference to Display function, DOMDisplay (in index.html).
     runLevel(new Level(plans[n]), Display, function(status) {
-      if (status == "lost")
+      if (status == "lost")	
 		  startLevel(n);
-
-      else if (n < plans.length - 1)
+	  
+	  else if (n < plans.length - 1)
+	
+		  
         startLevel(n + 1);
-      else
-        console.log('You Win!');
+		audio.src = "sound/success.wav";
+		audio.play();
+   /*  else
+        console.log('You Win!');*/
     });
   }
   startLevel(0);
