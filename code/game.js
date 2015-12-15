@@ -405,6 +405,8 @@ Player.prototype.moveY = function(step, level, keys) {
     level.playerTouched(obstacle);
     if (keys.up && this.speed.y > 0)
       this.speed.y = -jumpSpeed;
+		else if(keys.test && this.speed.y >0)
+			this.speed.y = -jumpSpeed-8;
     else
       this.speed.y = 0;
   } else {
@@ -546,3 +548,4 @@ function runGame(plans, Display) {
   startLevel(0);
 
 }
+
