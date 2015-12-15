@@ -1,21 +1,10 @@
 <!doctype html>
-
-<html>
-<h2> Welcome to my page, Let's Play! <h2>
 <script src="code/game.js"></script>
 <script src="code/game_levels.js"></script>
-<script src="code/canvasdisplay.js"></script>
+
 <link rel="stylesheet" href="css/game.css">
-
-
 <body>
-
-<audio id="audio" src="sound/success.wav" style="display:none"></audio>
-
   <script>
-    runGame(GAME_LEVELS, CanvasDisplay);
+    runGame(GAME_LEVELS, DOMDisplay);
   </script>
-  
-  
- </body>
-</html>
+</body>
