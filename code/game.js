@@ -448,6 +448,8 @@ Level.prototype.playerTouched = function(type, actor) {
     });
     // If there aren't any coins left, player wins
     if (!this.actors.some(function(actor) {
+		audio.src = "sound/success.wav";
+		audio.play();
 		
            return actor.type == "coin";
          })) {
@@ -539,8 +541,7 @@ function runGame(plans, Display) {
 	
 		  
         startLevel(n + 1);
-		audio.src = "sound/success.wav";
-		audio.play();
+		
    /*  else
         console.log('You Win!');*/
     });
